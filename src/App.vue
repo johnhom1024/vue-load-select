@@ -1,6 +1,12 @@
 <template>
     <div id="app">
-        <load-select v-model="selected" :data="data" :page="page" :hasMore="more" :request="getData"></load-select>
+        <load-select
+            v-model="selected"
+            :data="data"
+            :page="page"
+            :hasMore="more"
+            :request="getData"
+        ></load-select>
     </div>
 </template>
 
