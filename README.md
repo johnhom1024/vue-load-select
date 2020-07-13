@@ -73,6 +73,7 @@ export default {
 ```
 
 项目的运行结果如下：
+
 ![image](https://github.com/blank1024/vue-load-select/raw/master/example.gif)
 
 enjoy it!
