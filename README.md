@@ -1,6 +1,6 @@
 # vue-load-select
 
-这个项目已经被封装并且上传到了npm中，如果有需要可以在[@marihom/el-load-select](https://github.com/marihom/el-load-select)中下载
+这个组件已经被封装并且上传到了npm中，如果有需要可以通过[@marihom/el-load-select](https://github.com/marihom/el-load-select)下载
 
 > 基于 el-select 二次封装的 Vue.js 下拉加载组件
 
