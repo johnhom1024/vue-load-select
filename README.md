@@ -4,7 +4,7 @@
 
 > 基于 el-select 二次封装的 Vue.js 下拉加载组件
 
-![image](https://github.com/blank1024/vue-load-select/raw/master/example.jpg)
+![image](https://github.com/marihom/vue-load-select/raw/master/example.jpg)
 
 ## 构建
 
@@ -76,6 +76,6 @@ export default {
 
 项目的运行结果如下：
 
-![image](https://github.com/blank1024/vue-load-select/raw/master/example.gif)
+![image](https://github.com/marihom/vue-load-select/raw/master/example.gif)
 
 enjoy it!
