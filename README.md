@@ -1,10 +1,10 @@
 # vue-load-select
 
-这个组件已经被封装并且上传到了npm中，如果有需要可以通过[@marihom/el-load-select](https://github.com/marihom/el-load-select)下载
+这个组件已经被封装并且上传到了npm中，如果有需要可以通过安装[@johnhom/el-load-select](https://github.com/johnhom1024/el-load-select)
 
 > 基于 el-select 二次封装的 Vue.js 下拉加载组件
 
-![image](https://github.com/marihom/vue-load-select/raw/master/example.jpg)
+![image](https://github.com/johnhom1024/vue-load-select/raw/master/example.jpg)
 
 ## 构建
 
@@ -76,6 +76,6 @@ export default {
 
 项目的运行结果如下：
 
-![image](https://github.com/marihom/vue-load-select/raw/master/example.gif)
+![image](https://github.com/johnhom1024/vue-load-select/raw/master/example.gif)
 
 enjoy it!
