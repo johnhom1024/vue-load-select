@@ -2,9 +2,9 @@
  * @Description: 
  * @Date: 2020-07-11 16:02:44
  * @Author: jawnwa22
- * @LastEditors: jawnwa22
- * @LastEditTime: 2020-07-13 17:13:16
---> 
+ * @LastEditors: handsome_anthony
+ * @LastEditTime: 2022-01-28 16:21:21
+-->
 <template>
     <el-select
         :value="value"
@@ -26,7 +26,12 @@
             :key="option.value"
         ></el-option>
         <!-- 此处加载中的value可以随便设置，只要不与其他数据重复即可 -->
-        <el-option v-if="hasMore" disabled label="加载中..." value="-1"></el-option>
+        <el-option
+            v-if="hasMore"
+            disabled
+            label="加载中..."
+            value="-1"
+        ></el-option>
     </el-select>
 </template>
 
@@ -65,6 +70,33 @@ export default {
             default: true
         }
     },
+    directives: {
+        // 这里实现一个组件内部的自定义指令
+        loadmore: {
+            // 指令的定义
+            bind(el, binding) {
+                const SELECTWRAP = el.querySelector(
+                    ".el-select-dropdown .el-select-dropdown__wrap"
+                );
+                if (!SELECTWRAP) {
+                    throw new Error('获取不到"el-select-dropdown__wrap"节点');
+                }
+                SELECTWRAP.addEventListener("scroll", () => {
+                    // scrollTop  这里可能因为浏览器缩放存在小数点的情况，导致了滚动到底部时
+                    // scrollHeight 减去滚动到底部时的scrollTop ，依然大于clientHeight 导致无法请求更多数据
+                    // 这里将scrollTop向上取整 保证滚到底部时，触发调用
+                    const CONDITION =
+                        SELECTWRAP.scrollHeight -
+                            Math.ceil(SELECTWRAP.scrollTop) <=
+                        SELECTWRAP.clientHeight;
+                    // el.scrollTop !== 0 当输入时，如果搜索结果很少，以至于没看到滚动条，那么此时的CONDITION计算结果是true，会执行bind.value()，此时不应该执行，否则搜索结果不匹配
+                    if (CONDITION && SELECTWRAP.scrollTop !== 0) {
+                        binding.value();
+                    }
+                });
+            }
+        }
+    },
     data() {
         return {
             keyword: "", // 存储关键字用
@@ -76,7 +108,7 @@ export default {
         loadMore() {
             // 如果没有更多数据，则不请求
             if (!this.hasMore) {
-                return
+                return;
             }
             // 如果intercept属性为true则不请求数据，
             if (this.loadMore.intercept) {
